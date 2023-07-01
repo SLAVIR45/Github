@@ -62,6 +62,6 @@ def id_edit_del_show(text):
 
 
 def create_note():
-    title = input("Ведите название заметки")
-    body =  input("Введите описание заметки")
+    title = input("Ведите название заметки: ")
+    body =  input("Введите описание заметки: ")
     return Note.Note(title=title,body=body)
