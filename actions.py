@@ -1,10 +1,12 @@
+import datetime
 import file_operations
 import Note
 
 
 
+
 def add():
-    note = create_note
+    note = create_note()
     array = file_operations.read_file()
     for notes in array:
         if Note.Note.get_id(note) == Note.Note.get_id(notes):
@@ -42,7 +44,7 @@ def id_edit_del_show(text):
         if id == Note.Note.get_id(notes):
             logic = False
             if text == 'edit':
-                note = create_note
+                note = create_note()
                 Note.Note.set_title(notes, note.get_title())
                 Note.Note.set_body(notes, note.get_body())
                 Note.Note.set_date(notes)
@@ -51,7 +53,7 @@ def id_edit_del_show(text):
                 array.remove(notes)
                 print('Заметка удалена...')
             if text == 'show':
-                print(Note.Note.map_note(notes))
+                print(Note.Note.view_note(notes))
     if logic == True:
         print('Такой заметки нет, возможно, вы ввели неверный id')
     file_operations.write_file(array, 'a')
@@ -60,6 +62,6 @@ def id_edit_del_show(text):
 
 
 def create_note():
-    title = input('Введите Название заметки: ')
-    body =  input('Введите Описание заметки: ')
-    return Note.Note(title=title, body=body)
+    title = input("Ведите название заметки")
+    body =  input("Введите описание заметки")
+    return Note.Note(title=title,body=body)
