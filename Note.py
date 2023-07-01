@@ -33,13 +33,6 @@ class Note:
     def set_date(note):
         note.date = str(datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
 
-
-    def create_note():
-        title = input('Введите Название заметки: ')
-        body =  input('Введите Описание заметки: ')
-        return Note.Note(title=title, body=body)
-
-
     def to_string(note):
         return note.id + ';' + note.title + ';' + note.body + ';' + note.date
 
